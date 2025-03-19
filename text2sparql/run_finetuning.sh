@@ -1,4 +1,5 @@
 #!/bin/bash
+
 python finetune_model.py \
   --input_file data/sft/rubq_train.json \
   --output_dir ./drive/MyDrive/text2sparql/models/rubq_model \
@@ -18,4 +19,3 @@ python finetune_model.py \
   --gradient_accumulation_steps 1 \
   --optim adamw_torch \
   --seed 42 \
-  
