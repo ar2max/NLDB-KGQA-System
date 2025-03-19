@@ -1,3 +1,5 @@
+#!/bin/bash
+
 python prepare_train_sft_dataset.py \
   --train_file "data/datasets/lcquad_2.0/lcquad_2.0_train.json" \
   --test_file "data/datasets/lcquad_2.0/lcquad_2.0_test.json" \
