@@ -1,12 +1,12 @@
 # The Benefits of Query-Based KGQA Systems for Complex and Temporal Questions in the LLM Era
 
 **Authors**  
-Oleg Somov<sup>2,6</sup>[0009−0007−1209−9131],  
-Artem Alekseev<sup>1</sup>[0009−0008−2642−1555],  
-Mikhail Chaichuk<sup>2,3</sup>[0009−0009−8900−2195],  
-Miron Butko<sup>4</sup>[0009−0007−8541−6740],  
-Alexander Panchenko<sup>1,2,3</sup>[0000−0001−6097−6118],  
-Elena Tutubalina<sup>2,3,5</sup>[0000−0001−7936−0284]
+Oleg Somov
+Artem Alekseev
+Mikhail Chaichuk
+Miron Butko
+Alexander Panchenko 
+Elena Tutubalina
 
 ---
 
