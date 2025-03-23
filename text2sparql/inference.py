@@ -6,6 +6,7 @@ import argparse
 from transformers import AutoModelForCausalLM, AutoTokenizer, set_seed
 import numpy as np
 import random
+from peft import PeftModel
 
 
 def fix_seed(seed):
@@ -89,18 +90,15 @@ def main():
     parser = argparse.ArgumentParser(
         description="Generate SPARQL query predictions for a given dataset."
     )
-    parser.add_argument("--model_name_or_path", type=str, required=True,
-                        help="Path or model name for the fine-tuned model.")
-    parser.add_argument("--dataset_file", type=str, required=True,
-                        help="Path to the JSON file containing the dataset.")
-    parser.add_argument("--output_file", type=str, default="predictions_table.json",
-                        help="File to save the predictions table.")
-    parser.add_argument("--batch_size", type=int, default=32,
-                        help="Batch size for generation.")
-    parser.add_argument("--max_length", type=int, default=1024,
-                        help="Maximum input length for tokenization.")
-    parser.add_argument("--seed", type=int, default=42,
-                        help="Random seed")
+    parser.add_argument("--model_name_or_path", type=str, required=True, help="Path or model name for the fine-tuned model.")
+    parser.add_argument("--dataset_file", type=str, required=True, help="Path to the JSON file containing the dataset.")
+    parser.add_argument("--output_file", type=str, default="predictions_table.json", help="File to save the predictions table.")
+    parser.add_argument("--batch_size", type=int, default=32, help="Batch size for generation.")
+    parser.add_argument("--max_length", type=int, default=1024, help="Maximum input length for tokenization.")
+    parser.add_argument("--seed", type=int, default=42, help="Random seed")
+    parser.add_argument("--use_lora", type=bool, default=False)
+    parser.add_argument("--base_model", type=str, default=None)
+
     args = parser.parse_args()
 
     fix_seed(args.seed)
@@ -115,6 +113,15 @@ def main():
     tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path)
     tokenizer.padding_side = "left"
 
+    if args.use_lora:
+        model = AutoModelForCausalLM.from_pretrained(args.base_model, torch_dtype=torch.float16, device_map="auto")
+        model.resize_token_embeddings(len(tokenizer))
+        model = PeftModel.from_pretrained(model, args.model_name_or_path)
+
+    else:
+        model = AutoModelForCausalLM.from_pretrained(args.model_name_or_path, torch_dtype=torch.float16, device_map="auto")
+    
+    model = model.to(device)"
 
     dataset = SparqlInferenceDataset(args.dataset_file, tokenizer, max_length=args.max_length)
     predictions = predict_sparql_queries(model, tokenizer, dataset, batch_size=args.batch_size)
