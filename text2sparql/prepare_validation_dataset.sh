@@ -4,4 +4,4 @@ python prepare_validation_sft_dataset.py \
     --entities "data/miron_entities/pat_result_entity_10.json" \
     --predicates "data/miron_entities/pat_result_property_10.json" \
     --output "data/e2e_validation_datasets/pat_input_dataset.json" \
-    --mode "miron"
+    --mode "retreason"

@@ -376,14 +376,14 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    # asyncio.run(preprocess_rubq(args.input_rubq_train, args.output_rubq_train))
-    # asyncio.run(preprocess_rubq(args.input_rubq_test, args.output_rubq_test))
-    #
-    # asyncio.run(preprocess_qald(args.input_qald_train, args.output_qald_train))
-    # asyncio.run(preprocess_qald(args.input_qald_test, args.output_qald_test))
-    #
-    # asyncio.run(preprocess_lcquad(args.input_lcquad_train, args.output_lcquad_train))
-    # asyncio.run(preprocess_lcquad(args.input_lcquad_test, args.output_lcquad_test))
+    asyncio.run(preprocess_rubq(args.input_rubq_train, args.output_rubq_train))
+    asyncio.run(preprocess_rubq(args.input_rubq_test, args.output_rubq_test))
+
+    asyncio.run(preprocess_qald(args.input_qald_train, args.output_qald_train))
+    asyncio.run(preprocess_qald(args.input_qald_test, args.output_qald_test))
+
+    asyncio.run(preprocess_lcquad(args.input_lcquad_train, args.output_lcquad_train))
+    asyncio.run(preprocess_lcquad(args.input_lcquad_test, args.output_lcquad_test))
 
     asyncio.run(preprocess_pat(args.input_pat_singlehop, args.input_pat_multihop, args.output_pat_train, args.output_pat_test))
 

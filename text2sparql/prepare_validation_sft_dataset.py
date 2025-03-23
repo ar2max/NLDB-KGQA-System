@@ -3,10 +3,10 @@ import argparse
 from tqdm import tqdm
 from transformers import AutoTokenizer
 
-from nutils import INSTRUCTION, load_json, format_qid, format_refined_entities, create_prompt
-def prepare_e2e_dataset(dataset, tokenizer, entities_path, predicates_path, output_path, mode="miron"):
-    if mode not in {"refined", "miron"}:
-        raise ValueError("Mode must be either 'refined' or 'miron'")
+from utils import INSTRUCTION, load_json, format_qid, format_refined_entities, create_prompt
+def prepare_e2e_dataset(dataset, tokenizer, entities_path, predicates_path, output_path, mode="retreason"):
+    if mode not in {"refined", "retreason"}:
+        raise ValueError("Mode must be either 'refined' or 'retreason'")
 
     entity_candidates = load_json(entities_path)
     predicate_candidates = load_json(predicates_path)
@@ -69,8 +69,8 @@ if __name__ == "__main__":
     parser.add_argument("--entities", required=True, help="Path to entity candidates JSON file")
     parser.add_argument("--predicates", required=True, help="Path to predicate candidates JSON file")
     parser.add_argument("--output", required=True, help="Output path for processed dataset JSON file")
-    parser.add_argument("--mode", choices=["refined", "miron"], default="miron",
-                        help="Processing mode: 'refined' or 'miron'")
+    parser.add_argument("--mode", choices=["refined", "retreason"], default="retreason",
+                        help="Processing mode: 'refined' or 'retreason'")
 
     args = parser.parse_args()
 
