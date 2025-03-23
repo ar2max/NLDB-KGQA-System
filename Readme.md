@@ -1,11 +1,11 @@
 # The Benefits of Query-Based KGQA Systems for Complex and Temporal Questions in the LLM Era
 
 **Authors**  
-Oleg Somov
-Artem Alekseev
-Mikhail Chaichuk
-Miron Butko
-Alexander Panchenko 
+Oleg Somov,
+Artem Alekseev,
+Mikhail Chaichuk,
+Miron Butko,
+Alexander Panchenko,
 Elena Tutubalina
 
 ---
