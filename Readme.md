@@ -80,7 +80,9 @@ Unify each dataset (QALD-10, LC-QuAD 2.0, RuBQ 2.0, PAT) into a consistent JSON 
 ### 2. **Build the BM25 Index**
 
 > **Note**  
-> To run the BM25 retrieval and indexing steps, you must have a **local Wikidata dump**. Ensure you have access to the relevant Wikidata data before proceeding.
+> To run the BM25 retrieval and indexing steps, you must have a **local Wikidata dump**.  
+> One way to obtain it is via [simple-wikidata-db](https://github.com/neelguha/simple-wikidata-db).  
+> Be sure to download the dump, then specify the path so the scripts can access it for retrieval and indexing.
 
 
 To build a BM25 index over Wikidata subsets, follow these steps:
@@ -95,7 +97,7 @@ To build a BM25 index over Wikidata subsets, follow these steps:
      ```bash
      bash retrieval/2_create_bm25_index.sh
      ```
-   - This script uses `pyserini` to index the JSONL files in `data/combined_data/` and then saves the Lucene index to `data/combined_data_index/`.
+   - This script uses `pyserini` to index the JSONL files and then saves the Lucene index.
 
 3. **Test the Index**  
    - **Notebook**: `retrieval/3_test_index.ipynb`  
