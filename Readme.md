@@ -184,7 +184,7 @@ We execute gold vs. predicted SPARQL on Wikidata to measure performance.
 
 ### GPT-4 Baseline
 
-Notebooks under `gpt_kgqa/` demonstrate GPT-4:
+Notebooks under `gpt_kgqa/` demonstrate GPT-4o ability to answer questions in 2 settings:
 - **Direct QA** (`gpt4_direct_qa.ipynb`)  
 - **Text-to-SPARQL** (`gpt4_text2sparql.ipynb`)  
 
