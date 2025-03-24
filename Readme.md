@@ -209,12 +209,7 @@ By default, the scripts will place new files under:
 ## Citation
 
 ```
-@inproceedings{somov2023query,
-  title={The benefits of query-based KGQA systems for complex and temporal questions in LLM era},
-  author={Somov, Oleg and Alekseev, Artem and Chaichuk, Mikhail and Butko, Miron and Panchenko, Alexander and Tutubalina, Elena},
-  year={2023},
-  ...
-}
+...
 ```
 
 ---
