@@ -211,7 +211,20 @@ By default, the scripts will place new files under:
 ## Citation
 
 ```
-...
+@InProceedings{10.1007/978-3-031-97141-9_29,
+author="Alekseev, Artem
+and Chaichuk, Mikhail
+and Butko, Miron
+and Panchenko, Alexander
+and Tutubalina, Elena
+and Somov, Oleg",
+title="The Benefits of Query-Based KGQA Systems for Complex and Temporal Questions in LLM Era",
+booktitle="Natural Language Processing and Information Systems",
+year="2026",
+publisher="Springer Nature Switzerland",
+pages="426--441",
+isbn="978-3-031-97141-9"
+}
 ```
 
 ---
